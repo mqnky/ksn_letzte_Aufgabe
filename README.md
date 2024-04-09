@@ -1,5 +1,6 @@
 # ksn
 
+Mitbearbeiter: Nemas
 
 ![image](https://github.com/mqnky/ksn/assets/95501683/66615fff-a626-42bd-be10-475863f6bcd6)
 
