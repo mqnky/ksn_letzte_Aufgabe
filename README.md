@@ -1,6 +1,6 @@
 # KSN Nemas & Paierl
 
-Das ist das KSN Projekt von Paierl und Nemas über GNU Radio.
+Das ist das KSN Projekt von Nemas und Paierl über GNU Radio.
 
 GNU Radio ermöglicht das erstellen von SDR-Anwendungen. Bei SDR Werden Hardwarekomponente eines Radios durch Software ersetzt. Dadurch erreicht man eine hohe Fexibilität und Anpassungsfähigkeit. 
 
