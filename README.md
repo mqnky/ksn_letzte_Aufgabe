@@ -6,6 +6,8 @@ GNU Radio ermöglicht das erstellen von SDR-Anwendungen. Bei SDR Werden Hardware
 
 Die Optimale umgebung für GNU Radio ist Linux aber es gibt auch Versionen für MacOS und Windows. GNU Radio ist open source und wird stetig transparent weitentwickelt.
 
+Es kann nämlich sehr vielseitig eingesetzt werden: Wireless Communication, Bildverarbeitung, Radar und IoT (Internet of Things).
+
 GNU Radio wurde von Eric Blossom ins leben gerufen und ist seitdem ein wichtiger Bestandteil im Bereich der Funktechnik.
 Mitbearbeiter: Nemas
 
