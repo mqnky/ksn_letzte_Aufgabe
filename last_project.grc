@@ -50,10 +50,10 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    audio_decim: '8'
+    audio_decim: '384000'
     audio_pass: '16000'
     audio_stop: '20000'
-    chan_rate: '384000'
+    chan_rate: '1'
     comment: ''
     deviation: '75000'
     gain: '1.0'
@@ -64,7 +64,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [496, 352.0]
+    coordinate: [752, 352.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0
@@ -74,7 +74,7 @@ blocks:
     alias: ''
     amp: '1'
     comment: ''
-    freq: '94000000'
+    freq: '2500000'
     maxoutbuf: '0'
     minoutbuf: '0'
     offset: '0'
@@ -104,7 +104,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [880, 400.0]
+    coordinate: [976, 392.0]
     rotation: 0
     state: enabled
 - name: blocks_file_source_0
@@ -126,7 +126,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 288.0]
+    coordinate: [32, 256.0]
     rotation: 0
     state: enabled
 - name: blocks_multiply_xx_0
@@ -144,7 +144,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 392.0]
+    coordinate: [392, 392.0]
     rotation: 0
     state: enabled
 - name: low_pass_filter_0
@@ -161,14 +161,14 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    type: fir_filter_fff
-    width: '40000'
+    type: fir_filter_ccf
+    width: '400'
     win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [680, 352.0]
+    coordinate: [504, 352.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_1
@@ -202,7 +202,7 @@ blocks:
     color9: '"dark green"'
     comment: ''
     ctrlpanel: 'False'
-    fc: '0'
+    fc: '91000000'
     fftsize: '1024'
     freqhalf: 'True'
     grid: 'False'
@@ -249,7 +249,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [496, 200.0]
+    coordinate: [912, 176.0]
     rotation: 0
     state: enabled
 - name: qtgui_waterfall_sink_x_0
@@ -280,7 +280,7 @@ blocks:
     color8: '0'
     color9: '0'
     comment: ''
-    fc: '0'
+    fc: '91000000'
     fftsize: '1024'
     freqhalf: 'True'
     grid: 'False'
@@ -310,18 +310,39 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [496, 72.0]
+    coordinate: [912, 72.0]
+    rotation: 0
+    state: enabled
+- name: rational_resampler_xxx_0
+  id: rational_resampler_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: '10'
+    fbw: '0'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    taps: '[]'
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [232, 264.0]
     rotation: 0
     state: enabled
 
 connections:
-- [analog_fm_demod_cf_0, '0', low_pass_filter_0, '0']
+- [analog_fm_demod_cf_0, '0', audio_sink_0_0, '0']
 - [analog_sig_source_x_0, '0', blocks_multiply_xx_0, '1']
-- [blocks_file_source_0, '0', blocks_multiply_xx_0, '0']
-- [blocks_multiply_xx_0, '0', analog_fm_demod_cf_0, '0']
-- [blocks_multiply_xx_0, '0', qtgui_freq_sink_x_1, '0']
-- [blocks_multiply_xx_0, '0', qtgui_waterfall_sink_x_0, '0']
-- [low_pass_filter_0, '0', audio_sink_0_0, '0']
+- [blocks_file_source_0, '0', rational_resampler_xxx_0, '0']
+- [blocks_multiply_xx_0, '0', low_pass_filter_0, '0']
+- [low_pass_filter_0, '0', analog_fm_demod_cf_0, '0']
+- [low_pass_filter_0, '0', qtgui_freq_sink_x_1, '0']
+- [low_pass_filter_0, '0', qtgui_waterfall_sink_x_0, '0']
+- [rational_resampler_xxx_0, '0', blocks_multiply_xx_0, '0']
 
 metadata:
   file_format: 1
